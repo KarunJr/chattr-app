@@ -18,6 +18,7 @@ export const pusherClient = new PusherClient(
   }
 );*/
 
+/* eslint-disable no-var */
 declare global {
   var pusherServer: PusherServer | undefined;
   var pusherClient: PusherClient | undefined;
