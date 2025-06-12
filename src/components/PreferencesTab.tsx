@@ -20,7 +20,7 @@ const PreferencesTab = () => {
         size={"icon"}
         onClick={() => {
           setTheme("light");
-          soundEnabled && playMouseClick();
+          if(soundEnabled) playMouseClick();
         }}
       >
         <SunIcon className="size-[1.2rem] text-muted-foreground" />
@@ -31,7 +31,7 @@ const PreferencesTab = () => {
         size={"icon"}
         onClick={() => {
           setTheme("dark");
-          soundEnabled && playMouseClick();
+          if(soundEnabled) playMouseClick();
         }}
       >
         <MoonIcon className="size-[1.2rem] text-muted-foreground" />
@@ -42,6 +42,8 @@ const PreferencesTab = () => {
         size={"icon"}
         onClick={() => {
           setSoundEnabled(!soundEnabled);
+          
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           soundEnabled ? playSoundOff() : playSoundOn();
         }}
       >

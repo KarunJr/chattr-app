@@ -13,7 +13,7 @@ import EmojiPicker from "./EmojiPicker";
 import { Button } from "../ui/button";
 import useSound from "use-sound";
 import { usePreferences } from "@/store/usePreference";
-import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { sendMessageAction } from "@/actions/message.action";
 import { useSelectedUser } from "@/store/useSelectedUser";
 import {
@@ -55,11 +55,11 @@ const ChatBottomBar = () => {
   const handleSendMessage = () => {
     console.log("clicked");
     if (!message.trim()) return;
-
+    if (!selectedUser || !selectedUser.id) return;
     sendMessage({
       content: message,
       messageType: "text",
-      receiverId: selectedUser?.id!,
+      receiverId: selectedUser.id,
     });
 
     setMessage("");
@@ -143,10 +143,11 @@ const ChatBottomBar = () => {
             <Button
               type="submit"
               onClick={() => {
+                if (!selectedUser || !selectedUser.id) return;
                 sendMessage({
                   content: imageUrl,
                   messageType: "image",
-                  receiverId: selectedUser?.id!,
+                  receiverId: selectedUser.id,
                 });
                 setImageUrl("");
               }}
@@ -216,10 +217,11 @@ const ChatBottomBar = () => {
             <div
               className="text-muted-foreground dark:hover:text-white"
               onClick={() => {
+                if (!selectedUser || !selectedUser.id) return;
                 sendMessage({
                   content: "👍",
                   messageType: "text",
-                  receiverId: selectedUser?.id!,
+                  receiverId: selectedUser.id,
                 });
               }}
             >

@@ -8,6 +8,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useQuery } from "@tanstack/react-query";
 import { getMessages } from "@/actions/message.action";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
+import Image from "next/image";
 
 const MessageList = () => {
   const { selectedUser } = useSelectedUser();
@@ -81,7 +82,7 @@ const MessageList = () => {
                     {message.content}
                   </span>
                 ) : (
-                  <img
+                  <Image
                     src={message.content}
                     alt="Message Image"
                     className="border p-2 h-40 md:h-52 object-cover"
