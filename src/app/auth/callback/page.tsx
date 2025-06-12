@@ -5,7 +5,7 @@ import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const { data } = useQuery({
     queryKey: ["authCheck"],
@@ -29,4 +29,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

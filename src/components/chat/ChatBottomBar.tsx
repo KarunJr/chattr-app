@@ -102,7 +102,7 @@ const ChatBottomBar = () => {
       channel?.unbind("newMessage", handleNewMessage)
       pusherClient?.unsubscribe(channelName)
     }
-  }, [selectedUser?.id, currentUser?.id, queryClient])
+  }, [selectedUser?.id, currentUser?.id, queryClient, playNotificationSound, soundEnabled])
 
   
   return (
