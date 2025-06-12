@@ -42,8 +42,6 @@ const PreferencesTab = () => {
         size={"icon"}
         onClick={() => {
           setSoundEnabled(!soundEnabled);
-          
-          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           soundEnabled ? playSoundOff() : playSoundOn();
         }}
       >

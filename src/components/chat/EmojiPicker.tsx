@@ -3,7 +3,7 @@ import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { SmileIcon } from "lucide-react";
 import Picker from "@emoji-mart/react";
-import data from "@emoji-mart/data";
+import data, { Emoji } from "@emoji-mart/data";
 import { useTheme } from "next-themes";
 
 interface EmojiPickerProps{
@@ -23,7 +23,7 @@ const EmojiPicker = ({onChange}:EmojiPickerProps) => {
           data={data}
           maxFrequentRow={1}
           theme={theme === "dark" ? "dark" : "light"}
-          onEmojiSelect={(emoji: any) => onChange(emoji.native)}
+          onEmojiSelect={(emoji: Emoji) => onChange((emoji as any).native)}
         />
       </PopoverContent>
     </Popover>
